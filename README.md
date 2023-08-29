@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+## Explication du code React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 1. **Imports**:
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+```
 
-## Available Scripts
 
-In the project directory, you can run:
+- **React** est importé du module react. C'est l'objet principal que je vais utiliser pour définir des composants React.
+- **ReactDOM** est importé du module react-dom/client. C'est l'objet que je vais utiliser pour manipuler le DOM réel avec React.
 
-### `npm start`
+### 2. **Définition du composant**:
+```javascript
+function App() {
+    return <h1>Hello React ! </h1>
+}
+```
+- Ceci est un composant fonctionnel simple appelé **App**. Lorsqu'il est rendu, il affiche un titre **`<h1>`** avec le texte "Hello React !".
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 3. **Rendu avec React v18**:
+```javascript
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+    <React.StrictMode> 
+        <App /> 
+    </React.StrictMode>
+);
+```
+- Avec React v18, une nouvelle API pour le rendu concurrentiel a été introduite. **ReactDOM.createRoot()** crée un "root" pour mon application React. Je passe l'élément DOM où je veux que mon application React soit montée, généralement un élément avec l'ID **root**.
+- **root.render()** est utilisé pour rendre mon application React dans cet élément.
+- **<React.StrictMode>** est un utilitaire qui vérifie les problèmes potentiels dans mon application pendant le développement. C'est une bonne pratique de l'utiliser car il peut m'aider à identifier des problèmes avant qu'ils ne deviennent de réels problèmes.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 4. **Rendu avec React avant la version 18**:
+```javascript
+// React.render(<App />);
+```
 
-### `npm test`
+- Avant React v18, le rendu était plus direct. J'aurais simplement utilisé **ReactDOM.render()** pour rendre mon application. Cette ligne est commentée car elle montre comment c'était fait avant, mais elle n'est pas utilisée dans ce code.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**En résumé**, ce code est un exemple de base d'une application React qui affiche "Hello React !" dans un élément **`<h1>`**. Il montre également comment le rendu est effectué dans React v18 par rapport aux versions antérieures.
