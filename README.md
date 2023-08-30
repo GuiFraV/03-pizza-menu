@@ -1,4 +1,4 @@
-## Explication du code React
+## Composants de l'application de la Pizzeria
 
 ### 1. **Imports**:
 ```javascript
