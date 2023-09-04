@@ -16,7 +16,7 @@ function App() {
     );
 }
 ```
-### 2. **Composant Headert**:
+### 2. **Composant Header**:
 Ce composant affiche simplement le titre de l'application, représentant le nom de la pizzeria.
 ```javascript
 function Header() {
@@ -91,3 +91,90 @@ root.render(
 - Avant React v18, le rendu était plus direct. J'aurais simplement utilisé **ReactDOM.render()** pour rendre mon application. Cette ligne est commentée car elle montre comment c'était fait avant, mais elle n'est pas utilisée dans ce code.
 
 **En résumé**, ce code est un exemple de base d'une application React qui affiche "Hello React !" dans un élément **`<h1>`**. Il montre également comment le rendu est effectué dans React v18 par rapport aux versions antérieures.
+
+### 8. **Données des Pizzas**:
+
+Un tableau pizzaData contient les informations sur différentes pizzas, y compris le nom, les ingrédients, le prix, le nom de la photo et un indicateur pour savoir si la pizza est épuisée ou non.
+
+```javascript
+const pizzaData = [
+    {
+    name: "Focaccia",
+    ingredients: "Bread with italian olive oil and rosemary",
+    price: 6,
+    photoName: "pizzas/focaccia.jpg",
+    soldOut: false,
+    },
+    // ... autres pizzas ...
+];
+```
+
+### 9. **Améliorations du composant Menu**:
+
+Le composant Menu a été amélioré pour afficher dynamiquement une liste de pizzas à partir du tableau pizzaData. Si aucune pizza n'est disponible, aucune liste ne sera affichée.
+
+```javascript
+function Menu() {
+    const pizzas = pizzaData;
+    const numPizzas = pizzas.length;
+
+    return (
+        <main className='menu'>
+            <h2>Our menu</h2>
+            {numPizzas > 0 &&(     
+                <ul className='pizzas'>
+                    {pizzas.map((pizza) => (
+                        <Pizza pizzaObj={pizza} key={pizza.name}/>
+                    ))}
+                </ul>
+            )}
+        </main>
+    )
+
+```
+
+### 10. **Améliorations du composant Footer**:
+
+Le composant Footer a été mis à jour pour afficher un message indiquant si la pizzeria est ouverte ou fermée en fonction de l'heure actuelle. De plus, un bouton "Order" a été ajouté pour permettre aux utilisateurs de passer une commande.
+
+```javascript
+function Footer() {
+    const hour = new Date().getHours();
+    const openHour = 12;
+    const closeHour = 22;
+    const isOpen = hour >= openHour && hour <= closeHour;
+
+    return (
+        <footer className='footer'>
+            <div className='order'>
+                {isOpen && (
+                    <p>
+                        We're open until {closeHour}:00. Come visit us or order online.
+                    </p>
+                )}
+                <button className='btn'>Order</button>
+            </div>
+        </footer>
+    )
+}
+```
+
+### 11. ** Styles et CSS**:
+
+Des classes CSS ont été ajoutées pour améliorer la mise en forme et la présentation des composants. Par exemple, la classe 'container' pour le composant App, 'header' pour le composant Header, et ainsi de suite.
+
+```css
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* ... autres styles ... */
+```
