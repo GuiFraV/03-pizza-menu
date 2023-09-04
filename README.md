@@ -1,5 +1,7 @@
+## Composants de l'application de la Pizzeria
+
+L'application est structurée autour de plusieurs composants qui permettent de représenter différentes parties de l'interface utilisateur
 ## 🍕 Table des matières 🍕
-Intro : [Composants de l'application de la Pizzeria](#composants-de-lapplication-de-la-pizzeria)
 
   1. [Composant App](#1-composant-app)
   
@@ -21,10 +23,6 @@ Intro : [Composants de l'application de la Pizzeria](#composants-de-lapplication
   
   10. [Améliorations du composant Footer](#10-améliorations-du-composant-footer)
   
-
-## Composants de l'application de la Pizzeria
-
-L'application est structurée autour de plusieurs composants qui permettent de représenter différentes parties de l'interface utilisateur
 
 ### 1. **Composant App**:
 Le composant App est le point d'entrée de l'application. Il structure l'ensemble de l'application en combinant les composants **`<Header>`**, **`<Menu>`** et **`<Footer>`**.
