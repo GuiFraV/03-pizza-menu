@@ -1,3 +1,27 @@
+## 🍕 Table des matières 🍕
+Intro : [Composants de l'application de la Pizzeria](#composants-de-lapplication-de-la-pizzeria)
+
+  1. [Composant App](#1-composant-app)
+  
+  2. [Composant Header](#2-composant-header)
+  
+  3. [Composant Menu](#3-composant-menu)
+  
+  4. [Composant Footer](#4-composant-footer)
+  
+  5. [Composant Pizza](#5-composant-pizza)
+  
+  6. [Rendu de l'application](#6-rendu-de-lapplication)
+  
+  7. [Rendu avec React avant la version 18](#7-rendu-avec-react-avant-la-version-18)
+  
+  8. [Données des Pizzas](#8-données-des-pizzas)
+  
+  9. [Améliorations du composant Menu](#9-améliorations-du-composant-menu)
+  
+  10. [Améliorations du composant Footer](#10-améliorations-du-composant-footer)
+  
+
 ## Composants de l'application de la Pizzeria
 
 L'application est structurée autour de plusieurs composants qui permettent de représenter différentes parties de l'interface utilisateur
@@ -159,7 +183,7 @@ function Footer() {
 }
 ```
 
-### 11. ** Styles et CSS**:
+### 11. **Styles et CSS**:
 
 Des classes CSS ont été ajoutées pour améliorer la mise en forme et la présentation des composants. Par exemple, la classe 'container' pour le composant App, 'header' pour le composant Header, et ainsi de suite.
 
