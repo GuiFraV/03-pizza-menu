@@ -33,7 +33,7 @@ L'application est structurée autour de plusieurs composants qui permettent de r
 
   14. [Améliorations du composant Footer](#14-améliorations-du-composant-footer)
 
-  15. [Styles et CSS (Mise à jour)](#15-styles-et-css-(mise-à-jour))
+  15. [Styles et CSS (Mise à jour)](#15-styles-et-css-mise-à-jour)
 
 ### 1. **Composant App**:
 Le composant App est le point d'entrée de l'application. Il structure l'ensemble de l'application en combinant les composants **`<Header>`**, **`<Menu>`** et **`<Footer>`**.
