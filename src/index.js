@@ -111,6 +111,8 @@ function Menu() {
 
 function Pizza(props){
 
+    if(props.pizzaObj.soldOut) return null;
+
     console.log(props)
 
     return ( 
