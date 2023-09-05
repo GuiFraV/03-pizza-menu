@@ -1,4 +1,6 @@
 ## Composants de l'application de la Pizzeria
+### 👉 [LIVE PREVIEW ICI](https://03-pizza-menu-omega.vercel.app/, 'Menu pizza en ligne') | <a href="https://03-pizza-menu-omega.vercel.app/" target="_blank">LIVE PREVIEW ICI</a> 👈
+
 
 L'application est structurée autour de plusieurs composants qui permettent de représenter différentes parties de l'interface utilisateur
 ## 🍕 Table des matières 🍕
@@ -22,7 +24,16 @@ L'application est structurée autour de plusieurs composants qui permettent de r
   9. [Améliorations du composant Menu](#9-améliorations-du-composant-menu)
   
   10. [Améliorations du composant Footer](#10-améliorations-du-composant-footer)
-  
+
+  11. [Styles et CSS](#11-styles-et-css)
+
+  12. [Gestion des Pizzas Épuisées](#12-gestion-des-pizzas-épuisées)
+
+  13. [Améliorations du composant Menu](#13-améliorations-du-composant-menu)
+
+  14. [Améliorations du composant Footer](#14-améliorations-du-composant-footer)
+
+  15. [Styles et CSS (Mise à jour)](#15-styles-et-css-(mise-à-jour))
 
 ### 1. **Composant App**:
 Le composant App est le point d'entrée de l'application. Il structure l'ensemble de l'application en combinant les composants **`<Header>`**, **`<Menu>`** et **`<Footer>`**.
@@ -196,6 +207,100 @@ Des classes CSS ont été ajoutées pour améliorer la mise en forme et la prés
     color: #fff;
     padding: 20px 0;
     text-align: center;
+}
+
+/* ... autres styles ... */
+```
+
+### 12. **Gestion des Pizzas Épuisées**:
+
+Le composant **`Pizza`** a été amélioré pour gérer les pizzas qui sont épuisées. Si une pizza est marquée comme épuisée (avec la propriété **`soldOut`** définie sur **`true`**), elle sera affichée avec le texte "Sold out" au lieu du prix.
+
+```javascript
+function Pizza({ pizzaObj }) {
+    return ( 
+        <li className={ `pizza ${pizzaObj.soldOut ? 'sold-out' : ''} `}>
+            <img src={pizzaObj.photoName} alt={pizzaObj.name}/>
+            <div>
+                <h3>{pizzaObj.name}</h3>
+                <p>{pizzaObj.ingredients}</p>
+                <span>{pizzaObj.soldOut ? 'Sold out' : pizzaObj.price}</span>
+            </div>
+        </li> 
+    );
+}
+```
+### 13. **Améliorations du composant Menu**:
+
+Le composant **`Menu`**` a été mis à jour pour afficher un message différent en fonction du nombre de pizzas disponibles. Si aucune pizza n'est disponible, un message indiquant que le menu est en cours d'élaboration sera affiché.
+
+```javascript
+function Menu() {
+    const pizzas = pizzaData;
+    const numPizzas = pizzas.length;
+
+    return (
+        <main className='menu'>
+            <h2>Our menu</h2>
+            {numPizzas > 0  ? (    
+                <>
+                    <p>
+                        Authentic Italian cuisine. 6 creative dishes to choose from. All
+                        from our stone oven, all organic, all delicious.
+                    </p>
+                    <ul className='pizzas'>
+                        {pizzas.map((pizza) => (
+                            <Pizza pizzaObj={pizza} key={pizza.name}/>
+                        ))}
+                    </ul>
+                </>   
+            ) : <p>We're still working on our menu. Please come back later :) </p>
+            }
+        </main>
+    )
+}
+```
+
+### 14. **Améliorations du composant Footer**:
+
+Le composant **`Footer`** a été mis à jour pour afficher les heures d'ouverture et de fermeture de la pizzeria. Un nouveau composant **`Order`** a été introduit pour afficher les informations de commande lorsque la pizzeria est ouverte.
+
+```javascript
+function Footer() {
+    const hour = new Date().getHours();
+    const openHour = 8;
+    const closeHour = 22;
+    const isOpen = hour >= openHour && hour <= closeHour;
+
+    return (
+        <footer className='footer'>
+            {isOpen ? (
+                <Order closeHour={closeHour} openHour={openHour} /> 
+            ) : (
+                <p>We're happy to welcome you between {openHour}:00 and {closeHour}:00.</p>
+            )}
+        </footer>
+)}
+
+function Order({ closeHour, openHour }) {
+    return ( 
+        <div className='order'>
+            <p>
+                We're open from {openHour}:00 to {closeHour}:00. Come visit us or order online.
+            </p>
+            <button className='btn'>Order</button>
+        </div>
+    );
+}
+```
+
+### 15. **Styles et CSS (Mise à jour)**:
+
+Des classes CSS supplémentaires ont été ajoutées pour gérer l'affichage des pizzas épuisées et pour améliorer la mise en forme générale.
+
+```css
+.pizza.sold-out {
+    opacity: 0.5;
 }
 
 /* ... autres styles ... */
