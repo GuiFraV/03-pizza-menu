@@ -140,18 +140,26 @@ function Footer() {
 
     return (
         <footer className='footer'>
-            <div className='order'>
-                {isOpen && (
-                    <p>
-                        We're open until {closeHour}:00. Come visit us or order online.
-                    </p>
+           
+                {isOpen ? 
+                    <Order closeHours={closeHour}/> 
+                : (
+                    <p>We're open every day from {openHour}:00 to {closeHour}:00.</p>
                 )}
-                <button className='btn'>Order</button>
-            </div>
         </footer>
     // return React.createElement('footer', null, "We're currently open!")
 )}
 
+
+function Order(props) {
+    return <div className='order'>
+    <p>
+        We're open until {props.closeHours}:00. Come visit us or order online.
+    </p>
+
+    <button className='btn'>Order</button>
+</div>
+}
 
 
 // React v18
